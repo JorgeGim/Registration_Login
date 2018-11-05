@@ -1,5 +1,5 @@
 <?php 
-
+	session_start();
 	$db = pg_connect("host=localhost port=5434 dbname=users user=postgres password=12345")
 		or die('Could not connect: ' . pg_last_error());
 	
@@ -37,7 +37,10 @@
 			$result =  pg_query($query) or die ('Query failed: ' . pg_last_error());
 			
 			pg_free_result();
-			pg_close($db);			
+			pg_close($db);
+			$_SESSION['username'] = $username;
+			$_SESSION['success'] = "You are now logged in";
+			header('location: index.php');			 
 		}
 	}
 	
