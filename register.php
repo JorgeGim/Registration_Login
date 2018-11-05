@@ -11,6 +11,7 @@
 	</div>
 
 <form method="post" action="register.php">
+		<?php include ('errors.php'); ?>
 		<div class="input-group">
 			<label>Username</label>
 			<input type="text" name="username">
@@ -33,7 +34,7 @@
 
 		<div class="input-group">
 			<label>Confirm password</label>
-			<input type="password" name="password_1">
+			<input type="password" name="password_2">
 		</div>
 
 		<div class="input-group">
