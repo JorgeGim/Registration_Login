@@ -33,7 +33,7 @@
 		}
 		
 		if(count($errors) == 0){
-			$query = "INSERT INTO USERS (username, name, lastname, password) VALUES ('$username', '$name', '$lastname', '$password')";
+			$query = "INSERT INTO USERS (username, name, lastname, password) VALUES ('$username', '$name', '$lastname', '$password_2')";
 			$result =  pg_query($query) or die ('Query failed: ' . pg_last_error());
 			
 			pg_free_result();
