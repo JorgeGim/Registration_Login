@@ -1,4 +1,6 @@
 <?php 
+	mb_internal_encoding("UTF-8");
+	//echo mb_internal_encoding();
 	session_start();
 	$db = pg_connect("host=localhost port=5434 dbname=users user=postgres password=12345")
 		or die('Could not connect: ' . pg_last_error());
@@ -36,11 +38,14 @@
 			$query = "INSERT INTO USERS (username, name, lastname, password) VALUES ('$username', '$name', '$lastname', '$password_2')";
 			$result =  pg_query($query) or die ('Query failed: ' . pg_last_error());
 			
-			pg_free_result();
-			pg_close($db);
+			//pg_free_result();
+			
 			$_SESSION['username'] = $username;
 			$_SESSION['success'] = "You are now logged in";
-			header('location: index.php');			 
+			//header('Content-Type: text/html; charset=utf-8');
+			header('Location: index.php');
+		//	echo("Pasa por aca");
+			pg_close($db);			 
 		}
 	}
 	

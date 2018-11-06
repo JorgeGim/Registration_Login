@@ -4,13 +4,14 @@
 <head>
 	<title>Registration</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<meta charset="UTF-8">
 </head>
 <body>
 	<div class="header">
 		<h2>Registration</h2>
 	</div>
 
-<form method="post" action="register.php">
+<form method="post" action="register.php" accept-charset="utf-8">
 		<?php include ('errors.php'); ?>
 		<div class="input-group">
 			<label>Username</label>
