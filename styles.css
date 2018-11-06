@@ -30,6 +30,15 @@ form{
 	border-radius: 0px 0px 10px 10px;
 }
 
+.content{
+	width: 30%;
+	margin: 0px auto;
+	padding: 20px;
+	border: 1px solid #80C4DE;
+	background: white;
+	border-radius: 0px 0px 10px 10px;
+}
+
 .input-group label{
 	display: block;
 	text-align: left;
@@ -63,4 +72,11 @@ form{
 	background: #f2dede;
 	border-radius: 5px;
 	text-align: left;
+}
+
+.success{
+	color: #3c763d;
+	background: #dff0d8;
+	border: 1px solid #3c763d;
+	margin-bottom: 20px;
 }
