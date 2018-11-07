@@ -11,6 +11,7 @@
 	</div>
 
 <form method="post" action="login.php">
+	    <?php include ('errors.php'); ?>
 		<div class="input-group">
 			<label>Username</label>
 			<input type="text" name="username">
@@ -22,7 +23,7 @@
 		</div>
 
 		<div class="input-group">
-			<button type="submit" name="login" class="button">Login</button>
+			<button type="submit" name="login_" class="button">Login</button>
 		</div>
 		<p>
 			Not yet a member? <a href="register.php">Sign up</a>

@@ -29,7 +29,11 @@
 			<p><a href="index.php?logout='1'" style="color: red;">Logout</a></p>
 		
 		<?php } ?>
+		<p>
+			<a href="login.php">Change password</a>
+		</p>
 	</div>
+	
 
 </body>
 </html>
