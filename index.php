@@ -30,7 +30,7 @@
 		
 		<?php } ?>
 		<p>
-			<a href="login.php">Change password</a>
+			<a href="changepassword.php">Change password</a>
 		</p>
 	</div>
 	
