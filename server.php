@@ -100,6 +100,9 @@
 		
 		$password = md5($_POST['password']);
 		
+		if($password == $newPassword){
+			array_push($errors, "It is the same password");
+		}
 			
 		if(count($errors) == 0){
 			array_push($errors, $password);
