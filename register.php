@@ -44,12 +44,6 @@
 		<p>
 			Are you a member? <a href="login.php">Log in</a>
 		</p>
-
 </form>
 </body>
-
-	
-
-
-
 </html>

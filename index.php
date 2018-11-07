@@ -33,7 +33,5 @@
 			<a href="changepassword.php">Change password</a>
 		</p>
 	</div>
-	
-
 </body>
 </html>

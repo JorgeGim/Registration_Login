@@ -1,6 +1,5 @@
 <?php 
 	mb_internal_encoding("UTF-8");
-	//echo mb_internal_encoding();
 	session_start();
 	$db = pg_connect("host=localhost port=5434 dbname=users user=postgres password=12345")
 		or die('Could not connect: ' . pg_last_error());
