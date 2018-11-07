@@ -28,9 +28,8 @@
 		</div>
 
 		<div class="input-group">
-			<button type="submit" name="newpassword" class="button">Change password</button>
+			<button type="submit" name="newpasswordButton" class="button">Change password</button>
 		</div>
-		
 </form>
 </body>
 

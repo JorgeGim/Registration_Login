@@ -59,10 +59,13 @@
 		}
 		
 		$password = md5($_POST['password']);
+		//array_push($errors, $password);
 		
 		if(count($errors) == 0){
 			$query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+			$query2 = "SELECT password FROM users WHERE username = '$username'";
 			$result = pg_query($query);
+			array_push($errors, $query);
 			
 			if(pg_num_rows($result) == 1){
 				$_SESSION['username'] = $username;
@@ -79,5 +82,30 @@
 			session_destroy();
 			unset($_SESSION['username']);
 			header('Location: login.php');
+	}
+	
+	//change password
+	if(isset($_POST['newpasswordButton'])){
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+		$newPassword = md5($_POST['newpassword']);
+		
+		if(empty($username)){
+			array_push($errors, "Username is required");
+		}
+		
+		if(empty($password)){
+			array_push($errors, "Password is required");
+		}
+		
+		$password = md5($_POST['password']);
+		
+			
+		if(count($errors) == 0){
+			array_push($errors, $password);
+			$query = "UPDATE users SET password = '$newPassword' WHERE username = '$username' and password = '$password'";
+			$result = pg_query($query);
+			header('Location: login.php');
+		}
 	}
 ?>
