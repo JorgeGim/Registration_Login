@@ -36,10 +36,15 @@
 			or die('Could not connect: ' . pg_last_error());
 			
 			//esto va a servir para la query final
-			$username = $_SESSION['username'];
+			//$username = $_SESSION['username'];
 			
-			$queryTest = "SELECT name FROM users WHERE username = '$username'";
-			$result2 = pg_query($queryTest);
+			//$queryTest = "SELECT name FROM users WHERE username = '$username'";
+			
+			$finalQuery = "SELECT user1.username, user2.username FROM users user1,users user2, vistaTemporal vT 
+							WHERE user1.id_u= vT.id1 AND user2.id_u= vT.id2 AND vT.id1 < vT.id2 ORDER BY (user1.username)";
+			
+			
+			$result2 = pg_query($finalQuery);
 			echo "<table>\n";
 			while ($line = pg_fetch_array($result2, null, PGSQL_ASSOC)) {
 			echo "\t<tr>\n";
