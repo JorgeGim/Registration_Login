@@ -34,16 +34,8 @@
 	
 			<?php $db = pg_connect("host=localhost port=5434 dbname=users user=postgres password=12345")
 			or die('Could not connect: ' . pg_last_error());
-			
-			//esto va a servir para la query final
-			//$username = $_SESSION['username'];
-			
-			//$queryTest = "SELECT name FROM users WHERE username = '$username'";
-			
-			//$finalQuery = "SELECT user1.username, user2.username FROM users user1,users user2, vistaTemporal vT 
-			//				WHERE user1.id_u= vT.id1 AND user2.id_u= vT.id2 AND vT.id1 < vT.id2 ORDER BY (user1.username)";
 
-			$finalQuery = "Select u.username, us.username from users u left join users us on u.id_u != us.id_u where u.id_u < us.id_u
+			$finalQuery = "Select u.username as username1, us.username as username2 from users u left join users us on u.id_u != us.id_u where u.id_u < us.id_u
 					EXCEPT
 					select distinct u1.username, u2.username from users u1, users u2
 						where exists(select id_pelicula from pelis_que_vio where id_usuario = u1.id_u
