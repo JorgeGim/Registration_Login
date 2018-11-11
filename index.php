@@ -29,6 +29,30 @@
 			<p><a href="index.php?logout='1'" style="color: red;">Logout</a></p>
 		
 		<?php } ?>
+		
+		<?php if(isset($_SESSION["queryTest"])) { ?>
+	
+			<?php $db = pg_connect("host=localhost port=5434 dbname=users user=postgres password=12345")
+			or die('Could not connect: ' . pg_last_error());
+			
+			//esto va a servir para la query final
+			$username = $_SESSION['username'];
+			
+			$queryTest = "SELECT name FROM users WHERE username = '$username'";
+			$result2 = pg_query($queryTest);
+			echo "<table>\n";
+			while ($line = pg_fetch_array($result2, null, PGSQL_ASSOC)) {
+			echo "\t<tr>\n";
+			foreach ($line as $col_value) {
+			echo "\t\t<td>$col_value</td>\n";
+			}
+			echo "\t</tr>\n";
+			}
+			echo "</table>\n";
+			
+			?>
+			
+		<?php } ?>
 		<p>
 			<a href="changepassword.php">Change password</a>
 		</p>

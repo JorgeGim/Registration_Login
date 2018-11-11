@@ -58,17 +58,15 @@
 		}
 		
 		$password = md5($_POST['password']);
-		//array_push($errors, $password);
-		
+			
 		if(count($errors) == 0){
 			$query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-			$query2 = "SELECT password FROM users WHERE username = '$username'";
 			$result = pg_query($query);
-			array_push($errors, $query);
 			
 			if(pg_num_rows($result) == 1){
 				$_SESSION['username'] = $username;
 				$_SESSION['success'] = "You are now logged in";
+				$_SESSION['queryTest'] = "Result of query";
 				header('Location: index.php');
 			}else{
 				array_push($errors, "Wrong username/password combination ");
