@@ -47,7 +47,7 @@
 							select id_pelicula from pelis_que_vio where id_usuario = u1.id_u) 	";
 			
 			$result2 = pg_query($finalQuery);
-			echo "<table>\n";
+			echo "<table border='1'>\n";
 			while ($line = pg_fetch_array($result2, null, PGSQL_ASSOC)) {
 			echo "\t<tr>\n";
 			foreach ($line as $col_value) {
